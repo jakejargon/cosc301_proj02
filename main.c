@@ -10,12 +10,17 @@
 #include <sys/stat.h>
 #include <poll.h>
 #include <signal.h>
+#include "list.h"
 
 
 int main(int argc, char **argv) {
-
-    printf("main.c, so lonely.  no code here yet :-(\n");
-
-    return 0;
+	char** user_input = NULL;
+	int mode = 0;
+	while (mode != 2) {
+		user_input = NULL;
+		user_input = get_input();
+		mode = respond(user_input, mode);		
+	}
+	free(user_input);
+	return 0;
 }
-
